@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="paperformat_a4_alhokr" model="report.paperformat">
+    <field name="name">A4 with</field>
+    <field name="default" eval="True" />
+    <field name="format">A4</field>
+    <field name="page_height">0</field>
+    <field name="page_width">0</field>
+    <field name="orientation">Portrait</field>
+<!--    <field name="margin_top">110</field>-->
+    <field name="margin_top">60</field>
+    <field name="margin_bottom">30</field>
+    <field name="margin_left">9</field>
+    <field name="margin_right">9</field>
+    <field name="header_line" eval="False" />
+<!--    <field name="header_spacing">105</field>-->
+    <field name="header_spacing">50</field>
+    <field name="dpi">90</field>
+	</record>
+        <record id="paperformat_a4_without" model="report.paperformat">
+    <field name="name">A4 without</field>
+    <field name="default" eval="True" />
+    <field name="format">A4</field>
+    <field name="page_height">0</field>
+    <field name="page_width">0</field>
+    <field name="orientation">Portrait</field>
+<!--    <field name="margin_top">110</field>-->
+    <field name="margin_top">45</field>
+    <field name="margin_bottom">30</field>
+    <field name="margin_left">9</field>
+    <field name="margin_right">9</field>
+    <field name="header_line" eval="False" />
+<!--    <field name="header_spacing">105</field>-->
+    <field name="header_spacing">20</field>
+    <field name="dpi">90</field>
+	</record>
+
+
+    <report id="alhokair_einvoice_report"
+      		model="account.move"
+      		string="SERB E-Invoice"
+      		report_type="qweb-pdf"
+      		name="alhokair_einvoice_reports.alhokair_einvoice_report_view"
+      		file="alhokair_einvoice_reports.alhokair_einvoice_report_view"
+			paperformat="alhokair_einvoice_reports.paperformat_a4_alhokr"/>
+    <report id="alhokair_einvoice_report_serb"
+      		model="account.move"
+      		string="Without E-Invoice"
+      		report_type="qweb-pdf"
+      		name="alhokair_einvoice_reports.alhokair_einvoice_s_report_view"
+      		file="alhokair_einvoice_reports.alhokair_einvoice_s_report_view"
+			paperformat="alhokair_einvoice_reports.paperformat_a4_without"/>
+</odoo>
